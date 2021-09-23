@@ -19,9 +19,6 @@ public class ProductRepository {
     }
 
     public void removeById(int id) {
-//        Product www = new Product();
-//        www = findById(id);
-//        if (www.getId() == 0) {
         if (findById(id) == null) {
             throw new NotFoundException("Element with id: " + id + " not found");
         }
@@ -38,8 +35,7 @@ public class ProductRepository {
     }
 
     public Product findById(int id) {
-//        Product tmp = new Product();
-        for (Product item : items){
+        for (Product item : items) {
             if (item.getId() == id) {
                 return item;
             }

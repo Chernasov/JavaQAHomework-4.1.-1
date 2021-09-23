@@ -8,12 +8,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProductRepositoryTest {
     ProductRepository repo = new ProductRepository();
-    Product first = new Product(1, "SD",500);
-    Product second = new Product(22, "CD",1500);
-    Product third = new Product(333, "WCD",700);
+    Product first = new Product(1, "SD", 500);
+    Product second = new Product(22, "CD", 1500);
+    Product third = new Product(333, "WCD", 700);
 
     @BeforeEach
-    public void setUp () {
+    public void setUp() {
         repo.save(first);
         repo.save(second);
         repo.save(third);
@@ -27,7 +27,8 @@ class ProductRepositoryTest {
     }
 
     @Test
-    public void removeByIdIn () {
-
+    public void removeByIdIn() {
+        repo.removeById(333);
+        assertArrayEquals(new Product[]{first, second}, repo.findAll());
     }
 }
